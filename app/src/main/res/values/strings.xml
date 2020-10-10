@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DemoProject</string>
+    <string name="max_temp">Maximum Temprature: %s</string>
+    <string name="min_temp">Minimum Temprature: %s</string>
+    <string name="temp">Temprature: %s</string>
+    <string name="city">City Name: %s</string>
+    <string name="main">Main: %s</string>
+    <string name="description">Description: %s</string>
+    <string name="pressure">Pressure: %s</string>
+    <string name="humudity">Humidity: %s</string>
+    <string name="sea_land">Sear Level: %s</string>
+    <string name="speed">Speed: %s</string>
+</resources>
