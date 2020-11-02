@@ -9,7 +9,9 @@ import java.util.*
 class AppConstant {
 
     companion object {
-        val BASE_URL: String = "https://api.openweathermap.org/"
+        val BASE_URL: String = "https://fieldtrak.hitachi-payments.com/FieldTrak/API/"
+        const val validate="v2/ValidateLogin"
+        const val GetHomeScreen ="v1/GetHomeScreen"
 
         fun iSflusheRequire(context: Context): Boolean {
             if (TextUtils.isEmpty(PrefUtils.getFromPrefs(context, PrefUtils.TIMESTAMP))) {

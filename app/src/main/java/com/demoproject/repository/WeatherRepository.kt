@@ -23,7 +23,9 @@ class WeatherRepository @Inject constructor(
 
     @SuppressLint("CheckResult")
     fun getWeatherResponse(city: String): MutableLiveData<WeatherResponse> {
+
         var weatherResponseLiveData = MutableLiveData<WeatherResponse>()
+
         var displayData = MyRoomDataBase.getInstance(context).getNoteDao()
             .loadAllByIds(city)
         if (displayData != null && displayData.weatherCity.equals(city)) {

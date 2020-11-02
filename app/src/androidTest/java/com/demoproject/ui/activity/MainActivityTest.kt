@@ -16,15 +16,6 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
-    @get:Rule
-    var activityRule: ActivityScenarioRule<MainActivity> =
-        ActivityScenarioRule(MainActivity::class.java)
-
-    @Test
-    fun testActivityShouldNotBeNull() {
-        assertNotNull(activityRule)
-    }
-
     @Test
     fun testBackButton() {
         Espresso.pressBackUnconditionally()
@@ -55,6 +46,15 @@ class MainActivityTest {
     fun testCheckTypeText() {
         onView(withId(R.id.searchEditText))
             .check(matches(withText("abc")))
+    }
+
+    @get:Rule
+    var activityRule: ActivityScenarioRule<MainActivity> =
+        ActivityScenarioRule(MainActivity::class.java)
+
+    @Test
+    fun testActivityShouldNotBeNull() {
+        assertNotNull(activityRule)
     }
 
 }
