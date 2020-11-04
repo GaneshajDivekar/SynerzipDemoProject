@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.demoproject.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.demoproject.database.MyRoomDataBase
@@ -36,7 +37,7 @@ class Pending_Fragment : BaseFragment<PendingViewModel>(),ItemClick {
         pendingFragmentPendingBinding.lifecycleOwner = this
         itemClick=this
         displayData = MyRoomDataBase.getInstance(this!!.activity!!).getNoteDao().loadAllVisit("0") as ArrayList<VisitDB>
-        visitAdapter= VisitAdapter(activity as PlannedActivity, displayData,itemClick as Pending_Fragment)
+        visitAdapter= VisitAdapter(requireActivity(), displayData,itemClick as Pending_Fragment)
         pendingFragmentPendingBinding!!.rcPView.setLayoutManager(LinearLayoutManager(activity))
         pendingFragmentPendingBinding.rcPView.setAdapter(visitAdapter)
         return pendingFragmentPendingBinding.root

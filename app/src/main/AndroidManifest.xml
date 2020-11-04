@@ -20,7 +20,7 @@
     <uses-feature
         android:name="com.google.android.maps"
         android:required="false" />
-
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".application.WeatherApplication"
@@ -30,7 +30,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PlannedDetailsActivity"></activity>
+        <activity android:name=".ui.activity.AddExpenseActivity"/>
+        <activity android:name=".ui.activity.PlannedDetailsActivity" />
         <activity android:name=".ui.activity.PlannedActivity" />
         <activity android:name=".ui.activity.HomeActivity" />
         <activity
@@ -42,10 +43,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-Ji9EZPe6WGMIHOawb7cEJt1kvXtcd1g" />
-
     </application>
 
 </manifest>

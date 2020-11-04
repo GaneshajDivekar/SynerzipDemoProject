@@ -1,10 +1,7 @@
 package com.demoproject.di
 
 import com.demoproject.repository.PlannedDetailsRepo
-import com.demoproject.ui.activity.HomeActivity
-import com.demoproject.ui.activity.MainActivity
-import com.demoproject.ui.activity.PlannedActivity
-import com.demoproject.ui.activity.PlannedDetailsActivity
+import com.demoproject.ui.activity.*
 import com.demoproject.viewmodel.*
 import dagger.Component
 import javax.inject.Singleton
@@ -22,5 +19,8 @@ interface ApiComponent {
     fun inject(plannedDetailsActivity: PlannedDetailsActivity)
     fun inject(plannedDetailsViewModel: PlannedDetailsViewModel)
     fun inject(pendingViewModel: PendingViewModel)
+    fun inject(addExpenseViewModel: AddExpenseViewModel)
+    fun inject(addExpenseActivity: AddExpenseActivity)
+
 
 }

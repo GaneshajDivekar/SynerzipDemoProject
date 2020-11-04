@@ -52,8 +52,8 @@ class HomeFragment : BaseFragment<MainViewModel>() {
             val fragment: Fragment = LoginFragment()
                 (activity as MainActivity).addFragmentWithBackStack(fragment)
         }
-        var intent= Intent(activity, HomeActivity::class.java)
-        startActivity(intent)
+      /*  var intent= Intent(activity, HomeActivity::class.java)
+        startActivity(intent)*/
         return binding.root
     }
 

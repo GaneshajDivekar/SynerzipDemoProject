@@ -8,6 +8,11 @@
             name="visit"
             type="com.demoproject.model.VisitDB" />
     </data>
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="@dimen/_4sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/llVisitData"
         android:layout_width="match_parent"
@@ -41,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@={visit.visitCategoryCode}"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -169,8 +173,6 @@
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-
-
                         android:text="Call Type "
                         android:textColor="@color/black"
                         android:textSize="13sp" />
@@ -382,5 +384,5 @@
 
     </LinearLayout>
 
-
+    </androidx.cardview.widget.CardView>
 </layout>

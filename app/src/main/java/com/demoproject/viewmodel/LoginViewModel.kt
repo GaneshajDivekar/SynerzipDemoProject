@@ -6,6 +6,8 @@ import com.demoproject.application.WeatherApplication
 import com.demoproject.di.ApiComponent
 import com.demoproject.model.WeatherResponse
 import com.demoproject.model.allvisit.VisitTicketModel
+import com.demoproject.model.travelmode.TravelModeModel
+import com.demoproject.model.traveltype.TravelTypeModel
 import com.demoproject.network.ApiServices
 import com.demoproject.repository.LoginRepository
 import com.demoproject.ui.base.BaseViewModel
@@ -52,4 +54,12 @@ class LoginViewModel (application: Application) :
     fun getAllVisit(userID: Int, companyId: Int): MutableLiveData<VisitTicketModel> {
         return loginRepository.getAllVisit(userID.toString(),companyId.toString())
     }
+    fun getAllTravelTypes(userID: Int): MutableLiveData<TravelTypeModel> {
+        return loginRepository.getgetAllTravelTypes(userID.toString())
+    }
+
+    fun getAllModesOfTransport(userID: Int): MutableLiveData<TravelModeModel> {
+        return loginRepository.getAllModesOfTransport(userID.toString())
+    }
+
 }

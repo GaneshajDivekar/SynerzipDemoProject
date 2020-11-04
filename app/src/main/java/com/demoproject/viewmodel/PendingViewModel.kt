@@ -1,12 +1,16 @@
 package com.demoproject.viewmodel
 
 import android.app.Application
+import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.demoproject.application.WeatherApplication
+import com.demoproject.database.MyRoomDataBase
 import com.demoproject.di.ApiComponent
 import com.demoproject.model.VisitDB
 import com.demoproject.model.WeatherResponse
 import com.demoproject.network.ApiServices
+import com.demoproject.repository.LoginRepository
 import com.demoproject.repository.PendingRepos
 import com.demoproject.ui.base.BaseViewModel
 import retrofit2.Retrofit
@@ -14,6 +18,10 @@ import javax.inject.Inject
 
 class PendingViewModel (application: Application) :
     BaseViewModel(application) {
+
+
+
+
     @Inject
     lateinit var retrofit: Retrofit
     lateinit var apiServices: ApiServices

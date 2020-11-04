@@ -7,6 +7,8 @@ import com.demoproject.database.MyRoomDataBase
 import com.demoproject.model.DisplayData
 import com.demoproject.model.WeatherResponse
 import com.demoproject.model.allvisit.VisitTicketModel
+import com.demoproject.model.travelmode.TravelModeModel
+import com.demoproject.model.traveltype.TravelTypeModel
 import com.demoproject.network.ApiServices
 import com.google.gson.Gson
 import fieldtrak.kotlin.model.Example
@@ -91,6 +93,39 @@ class LoginRepository @Inject constructor(
                     handledErrorVisit(error)
                 })
         return allVisit
+    }
+ fun getgetAllTravelTypes(userId: String): MutableLiveData<TravelTypeModel> {
+        var travelTypeLiveData =MutableLiveData<TravelTypeModel>()
+
+        apiServices.
+        getAllTravelTypes(userId.toString())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+                allVisits->
+                travelTypeLiveData.postValue(allVisits)
+            },
+                {
+                    error->
+                    travelTypeLiveData.postValue(null)
+                    handledErrorVisit(error)
+                })
+        return travelTypeLiveData
+    }
+
+    fun getAllModesOfTransport(userId: String): MutableLiveData<TravelModeModel> {
+        var travelModeModel =MutableLiveData<TravelModeModel>()
+        apiServices.getAllModesOfTransport(userId.toString())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+                allVisits->
+                travelModeModel.postValue(allVisits)
+            },
+                {
+                    error->
+                    travelModeModel.postValue(null)
+                    handledErrorVisit(error)
+                })
+        return travelModeModel
     }
 
     private fun handledErrorVisit(error: Throwable) {

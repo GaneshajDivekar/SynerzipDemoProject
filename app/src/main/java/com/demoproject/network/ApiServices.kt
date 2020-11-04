@@ -2,6 +2,8 @@ package com.demoproject.network
 
 import com.demoproject.model.WeatherResponse
 import com.demoproject.model.allvisit.VisitTicketModel
+import com.demoproject.model.travelmode.TravelModeModel
+import com.demoproject.model.traveltype.TravelTypeModel
 import fieldtrak.kotlin.model.Example
 import fieldtrak.kotlin.model.homescreen.HomeScreenListResponse
 import io.reactivex.Observable
@@ -41,6 +43,14 @@ interface ApiServices {
     fun getAllVisit(
         @Query("user_id")userId: String,
         @Query("business_unit_id")businessUnitId: String): Observable<VisitTicketModel>
+
+    @POST("GetAllTravelTypes")
+    fun getAllTravelTypes(
+        @Query("user_id")userId: String): Observable<TravelTypeModel>
+
+    @POST("GetAllModesOfTransport")
+    fun getAllModesOfTransport(@Query("user_id")userId: String): Observable<TravelModeModel>
+
 
 
 }

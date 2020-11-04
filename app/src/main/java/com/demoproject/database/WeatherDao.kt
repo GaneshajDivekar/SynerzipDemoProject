@@ -3,10 +3,7 @@ package com.demoproject.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.demoproject.model.DisplayData
-import com.demoproject.model.HomeScreenDB
-import com.demoproject.model.VisitDB
-import com.demoproject.model.WeatherResponse
+import com.demoproject.model.*
 
 @Dao
 interface WeatherDao {
@@ -20,8 +17,20 @@ interface WeatherDao {
     @Query("SELECT * FROM visit_data WHERE online=:online")
     fun loadAllVisit(online:String): List<VisitDB>
 
+     @Query("SELECT * FROM travel_type")
+    fun loadAllType(): List<AllTravelTypeDB>
+    
+    @Query("SELECT * FROM travel_typeMode")
+    fun loadAllMode(): List<AllTravelModeDB>
+
     @Insert
     fun insert(vararg users: DisplayData)
+
+    @Insert
+    fun insertTravelType(vararg travelTypeDB: AllTravelTypeDB)
+
+    @Insert
+    fun insertTravelMode(vararg travelModeDB: AllTravelModeDB)
 
 
     @Insert
@@ -38,5 +47,9 @@ interface WeatherDao {
 
     @Query("DELETE FROM visit_data")
     fun deleteVisit()
+
+    @Query("SELECT headerId FROM header_data WHERE headerId = (SELECT MAX(headerId) FROM header_data)")
+    fun expenseVisitUniqueId(): Int
+
 
 }
